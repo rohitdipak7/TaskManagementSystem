@@ -2440,11 +2440,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Dipak\\Projects\\thinkbridge\\TaskManagementSystem\\TaskManagementSystem.csproj",
+      "projectUniqueName": "C:\\Users\\DipakkumarRohit\\Documents\\GitHub\\TaskManagementSystem\\TaskManagementSystem.csproj",
       "projectName": "TaskManagementSystem",
-      "projectPath": "C:\\Dipak\\Projects\\thinkbridge\\TaskManagementSystem\\TaskManagementSystem.csproj",
+      "projectPath": "C:\\Users\\DipakkumarRohit\\Documents\\GitHub\\TaskManagementSystem\\TaskManagementSystem.csproj",
       "packagesPath": "C:\\Users\\DipakkumarRohit\\.nuget\\packages\\",
-      "outputPath": "C:\\Dipak\\Projects\\thinkbridge\\TaskManagementSystem\\obj\\",
+      "outputPath": "C:\\Users\\DipakkumarRohit\\Documents\\GitHub\\TaskManagementSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DipakkumarRohit\\AppData\\Roaming\\NuGet\\NuGet.Config",
