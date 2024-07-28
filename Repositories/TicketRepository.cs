@@ -57,5 +57,46 @@ namespace TaskManagementSystem.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+        public async Task<IEnumerable<Document>> GetDocumentsByTicketIdAsync(Guid ticketId)
+        {
+            return await _context.Documents.Where(d => d.TicketID == ticketId).ToListAsync();
+        }
+
+        public async Task AddDocumentAsync(Document document)
+        {
+            _context.Documents.Add(document);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteDocumentAsync(Guid ticketId, Guid documentId)
+        {
+            var document = await _context.Documents.FirstOrDefaultAsync(d => d.TicketID == ticketId && d.ID == documentId);
+            if (document != null)
+            {
+                _context.Documents.Remove(document);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task<IEnumerable<Note>> GetNotesByTicketIdAsync(Guid ticketId)
+        {
+            return await _context.Notes.Where(n => n.TicketID == ticketId).ToListAsync();
+        }
+
+        public async Task AddNoteAsync(Note note)
+        {
+            _context.Notes.Add(note);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteNoteAsync(Guid ticketId, Guid noteId)
+        {
+            var note = await _context.Notes.FirstOrDefaultAsync(n => n.TicketID == ticketId && n.ID == noteId);
+            if (note != null)
+            {
+                _context.Notes.Remove(note);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

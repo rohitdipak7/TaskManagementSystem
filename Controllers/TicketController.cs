@@ -53,7 +53,56 @@ namespace TaskManagementSystem.Controllers
             return Ok(true);
         }
 
-        // Additional endpoints for updating, deleting, and managing tickets
+        // Endpoints for managing documents
+        [HttpGet("{ticketId}/documents")]
+        public async Task<IActionResult> GetDocuments(Guid ticketId)
+        {
+            var documents = await _ticketService.GetDocumentsByTicketIdAsync(ticketId);
+            return Ok(documents);
+        }
+
+        [HttpPost("{ticketId}/documents")]
+        public async Task<IActionResult> AddDocument(Guid ticketId, [FromBody] Document document)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            document.TicketID = ticketId;
+            await _ticketService.AddDocumentAsync(document);
+            return Ok(document);
+        }
+
+        [HttpDelete("{ticketId}/documents/{documentId}")]
+        public async Task<IActionResult> DeleteDocument(Guid ticketId, Guid documentId)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            await _ticketService.DeleteDocumentAsync(ticketId, documentId);
+            return Ok(true);
+        }
+
+        // Endpoints for managing notes
+        [HttpGet("{ticketId}/notes")]
+        public async Task<IActionResult> GetNotes(Guid ticketId)
+        {
+            var notes = await _ticketService.GetNotesByTicketIdAsync(ticketId);
+            return Ok(notes);
+        }
+
+        [HttpPost("{ticketId}/notes")]
+        public async Task<IActionResult> AddNote(Guid ticketId, [FromBody] Note note)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            note.TicketID = ticketId;
+            await _ticketService.AddNoteAsync(note);
+            return Ok(note);
+        }
+
+        [HttpDelete("{ticketId}/notes/{noteId}")]
+        public async Task<IActionResult> DeleteNote(Guid ticketId, Guid noteId)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            await _ticketService.DeleteNoteAsync(ticketId, noteId);
+            return Ok(true);
+        }
+
     }
 
 }
