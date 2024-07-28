@@ -23,7 +23,7 @@ This is the backend API for the Task Management System. It is built using .NET C
 - .NET Core SDK
 - MSSQL
 - Postman or any API testing tool
-## Database mdf, ldf and backup files are uploaded to the DBbackup folder. Make sure to restore it to get proper connectivity
+# Database mdf, ldf and backup files are uploaded to the DBbackup folder. Make sure to restore it to get proper connectivity
 ### API Endpoints
 
 #### Tickets
